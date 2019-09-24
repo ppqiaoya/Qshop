@@ -1,0 +1,79 @@
+{% extends 'buyer/base.html' %}
+
+{% block title %}
+    首页
+{% endblock %}
+
+{% block content %}
+
+    <div class="navbar_con">
+        <div class="navbar">
+            <h1 class="fl">全部商品分类</h1>
+            <ul class="navlist fl">
+                {#				<li><a href="">首页</a></li>#}
+                {#				<li class="interval">|</li>#}
+                {#				<li><a href="">手机生鲜</a></li>#}
+                {#				<li class="interval">|</li>#}
+                {#				<li><a href="">抽奖</a></li>#}
+            </ul>
+        </div>
+    </div>
+
+    <div class="center_con clearfix">
+        <ul class="subnav fl">
+            <li><a href="#model01" class="fruit">新鲜水果</a></li>
+            <li><a href="#model02" class="seafood">海鲜水产</a></li>
+            <li><a href="#model03" class="meet">猪牛羊肉</a></li>
+            <li><a href="#model04" class="egg">禽类蛋品</a></li>
+            <li><a href="#model05" class="vegetables">新鲜蔬菜</a></li>
+            <li><a href="#model06" class="ice">速冻食品</a></li>
+        </ul>
+        <div class="slide fl">
+            <ul class="slide_pics">
+                <li><img src="/static/buyer/images/slide.jpg" alt="幻灯片"></li>
+                <li><img src="/static/buyer/images/slide02.jpg" alt="幻灯片"></li>
+                <li><img src="/static/buyer/images/slide03.jpg" alt="幻灯片"></li>
+                <li><img src="/static/buyer/images/slide04.jpg" alt="幻灯片"></li>
+            </ul>
+            <div class="prev"></div>
+            <div class="next"></div>
+            <ul class="points"></ul>
+        </div>
+        <div class="adv fl">
+            <a href="#"><img src="/static/buyer/images/adv01.jpg"></a>
+            <a href="#"><img src="/static/buyer/images/adv02.jpg"></a>
+        </div>
+    </div>
+
+
+    {% for ty in result %}
+
+
+        <div class="list_model">
+            <div class="list_title clearfix">
+                <h3 class="fl" id="model01">{{ ty.type.type_label }}</h3>
+
+
+                <a href="/Buyer/goods_list/?keywords={{ ty.type.id }}" class="goods_more fr" id="fruit_more">查看更多 ></a>
+            </div>
+
+
+            <div class="goods_con clearfix">
+                <div class="goods_banner fl"><img src="/static/{{ ty.type.type_picture }}"></div>
+                <ul class="goods_list fl">
+                    {% for goods in ty.goods %}
+                        <li>
+                            <h4><a href="#">{{ goods.goods_name }}</a></h4>
+                            <a href="#"><img src="/static/{{ goods.picture }}"></a>
+                            <div class="prize">{{ goods.goods_price }}</div>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

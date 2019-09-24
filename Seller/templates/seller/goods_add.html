@@ -1,0 +1,41 @@
+{% extends "seller/base.html" %}
+{% block title %}
+    增加商品
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post" class="user" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" name="goods_number" placeholder="商品编号" class="form-control form-control-user">
+        </div>
+        <div class="form-group">
+            <input type="text" name="goods_name" placeholder="商品名字" class="form-control form-control-user">
+        </div>
+        <div class="form-group">
+            <input type="text" name="goods_price" placeholder="商品价格" class="form-control form-control-user">
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="goods_location" placeholder="商品产地" class="form-control form-control-user">
+        </div>
+
+
+
+       <div class="form-group">
+           <select name="goods_type" class="btn btn-warning dropdown-toggle btn-user btn-block">
+               <option value="0" >--请选择类型--</option>
+               {% for one in goods_type %}
+                    <option value="{{ one.id }}" >{{ one.type_label }}</option>
+               {% endfor %}
+           </select>
+        </div>
+        <div class="form-group">
+           上传图片：<input type="file" name="picture">
+        </div>
+
+        <input class="btn btn-primary btn-user btn-block" type="submit" value="增加商品">
+
+
+</form>
+{% endblock%}
