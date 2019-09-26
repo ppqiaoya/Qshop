@@ -13,6 +13,7 @@
     <script type="text/javascript" src="/static/buyer/js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="/static/buyer/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/static/buyer/js/slide.js"></script>
+{#    <script type="text/javascript" src="/static/buyer/js/jquery-1.8.3.js"></script>#}
 
     {% block style %}
 
@@ -54,8 +55,8 @@
 <div class="search_bar clearfix">
     <a href="/Buyer/index/" class="logo fl"><img src="/static/buyer/images/logo.png"></a>
     <div class="search_con fl">
-        <input type="text" class="input_text fl" name="" placeholder="搜索商品">
-        <input type="button" class="input_btn fr" name="" value="搜索">
+        <input type="text" class="input_text fl" name="" placeholder="搜索商品" id="keywords">
+        <input  type="button" class="input_btn fr"  value="搜索" onclick="getsearch()">
     </div>
     <div class="guest_cart fr">
         <a href="#" class="cart_name fl">我的购物车</a>
@@ -83,9 +84,29 @@
     <p>CopyRight © 2019 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
     <p>电话：010-****888 京ICP备*******8号</p>
 </div>
-<script type="text/javascript" src="/static/buyer/js/slideshow.js"></script>
+
+
+
+
+<script type="text/javascript" src="/static/buyer/js/slide.js"></script>
+
+<script>
+
+    function getsearch(){
+        keywords=$("#keywords").val();
+        {#console.log(keywords);#}
+        if(keywords){
+            url="/Buyer/goods_list/?keywords="+keywords+"&req_type=search";
+            console.log(url);
+            window.location.href=url;  // js中跳转页面
+        }
+    }
+
+</script>
+
+
 <script type="text/javascript">
-    BCSlideshow('focuspic');
+    {#slide('focuspic');#}
     var oFruit = document.getElementById('fruit_more');
     var oShownum = document.getElementById('show_count');
 
@@ -97,10 +118,12 @@
 
     oFruit.onclick = function () {
         window.location.href = 'list.html';
-    }
-</script>
-{% block script %}
+    };
 
-{% endblock %}
+</script>
+
+ {% block script %}
+ {% endblock %}
+
 </body>
 </html>

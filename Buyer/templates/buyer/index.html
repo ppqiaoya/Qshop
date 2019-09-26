@@ -54,7 +54,7 @@
                 <h3 class="fl" id="model01">{{ ty.type.type_label }}</h3>
 
 
-                <a href="/Buyer/goods_list/?keywords={{ ty.type.id }}" class="goods_more fr" id="fruit_more">查看更多 ></a>
+                <a href="/Buyer/goods_list/?keywords={{ ty.type.id }}&req_type=showMore" class="goods_more fr" id="fruit_more">查看更多 ></a>
             </div>
 
 
@@ -64,8 +64,8 @@
                     {% for goods in ty.goods %}
                         <li>
                             <h4><a href="#">{{ goods.goods_name }}</a></h4>
-                            <a href="#"><img src="/static/{{ goods.picture }}"></a>
-                            <div class="prize">{{ goods.goods_price }}</div>
+                            <a href="/Buyer/detail/{{ goods.id }}"><img src="/static/{{ goods.picture }}"></a>
+                            <div class="prize">{{ goods.goods_price }}元/500g</div>
                         </li>
                     {% endfor %}
 

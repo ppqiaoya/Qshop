@@ -1,0 +1,26 @@
+{% extends "buyer/base.html" %}
+
+{% block title %}
+    支付结果
+{% endblock %}
+
+{% block content %}
+    <div class="list_model">
+        <p style="text-align: center;font-size: 30px">支付结果</p>
+
+        <table>
+
+            {% for k,v in request.GET.items %}
+                <tr>
+                    <th>{{ k }}:</th>
+                    <td>{{ v }}</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
+
+
+http://127.0.0.1:8000/Buyer/payResult/?charset=utf-8&out_trade_no=15695024114308238&method=alipay.trade.page.pay.return&total_amount=4.00&sign=R8JKTP%2BuHaLwbBV6%2B8Ioactoywj6nQMI1vbhKmCOyj9FTYerNUboYTRnHLdlwSVPkxOT7icnsqgyibTstVobkYK5PvxM%2FjVlAgJ%2Fokc6qyRL9dV8r3Ys3qEQK2A0boDdXZAAHpLhvTIZIlUY11lo06y8LGzttksH4K2mQu%2Fh90tpUI0H4DYRvaP3zb3Qg4v0BQIJEoezQrxLz6ta1l2fozbGbmditBgTjAquLTVnkaouhYdMwaUZOS3YEBbxWfNlED0vDC5sFRsIOSAEpndOTGvQkVHa7pfN4Z9QvyghybtuwtAJdHrcrdk%2FNWuaoKsfeDI1g26Q5ua4GgNGYFADYQ%3D%3D&trade_no=2019092622001457991000023766&auth_app_id=2016101300673929&version=1.0&app_id=2016101300673929&sign_type=RSA2&seller_id=2088102179334172&timestamp=2019-09-26+20%3A55%3A18

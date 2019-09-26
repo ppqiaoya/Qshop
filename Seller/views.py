@@ -186,7 +186,7 @@ def goods_add(request):
         goods.goods_price = data.get("goods_price")
         goods.goods_location = data.get("goods_location")
         goods.picture = request.FILES.get("picture")
-        goods.save()
+        # goods.save()
         goods_type = request.POST.get("goods_type")   # select 标签的value  类型是 string
 
 

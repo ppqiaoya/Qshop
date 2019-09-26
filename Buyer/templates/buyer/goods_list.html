@@ -32,6 +32,9 @@
         <a href="#">新鲜水果</a>
     </div>
 
+
+    {% if goods %}
+
     <div class="main_wrap clearfix">
         <div class="l_wrap fl clearfix">
             <div class="new_goods">
@@ -84,6 +87,14 @@
             </div>
         </div>
     </div>
+
+
+    {% else %}
+        <div style="text-align: center;font-size: 35px" >暂无此商品<br>
+        <a href="https://www.taobao.com" style="color: red">点这里>>>这里啥都有</a>
+        </div>
+    {% endif %}
+
 
 
 {% endblock %}
