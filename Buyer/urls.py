@@ -12,9 +12,12 @@ urlpatterns = [
     path('goods_list/', views.goods_list),
     path('user_center_info/', views.user_center_info),
     path('place_order/', views.place_order),
+    path('place_order_more/', views.place_order_more),
 
     path('payViews/', views.payViews),
     path('payResult/', views.payResult),
+
+    path('add_cart/', views.add_cart),
 
     path('cart/', views.cart),
     path('user_center_order/', views.user_center_order),

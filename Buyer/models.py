@@ -44,3 +44,13 @@ class OrderInfo(models.Model):
 
     class Meta:
         db_table='orderInfo'
+
+class Cart(models.Model):
+    goods_number = models.IntegerField(verbose_name="商品数量")
+    goods_price=models.FloatField(verbose_name="商品单价")
+    goods_total = models.FloatField(verbose_name="商品小计")
+    goods=models.ForeignKey(to=Goods,on_delete=models.CASCADE)
+    cart_user=models.ForeignKey(to=LoginUser,on_delete=models.CASCADE)
+
+    class Meta:
+        db_table='cart'
